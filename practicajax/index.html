@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Digital</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Biblioteca Digital</h1>
+            <p class="subtitle">Explora nuestra colección de libros y encuentra tu próxima lectura</p>
+        </header>
+        
+        <div class="filters">
+            <div class="filter-group">
+                <label for="authorSelect">Filtrar por Autor</label>
+                <select id="authorSelect">
+                    <option value="0">Todos los autores</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="editorialSelect">Filtrar por Editorial</label>
+                <select id="editorialSelect">
+                    <option value="0">Todas las editoriales</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="priceRange">Rango de Precio</label>
+                <select id="priceRange">
+                    <option value="0">Todos los precios</option>
+                    <option value="1">Menos de $10</option>
+                    <option value="2">$10 - $20</option>
+                    <option value="3">Más de $20</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="books-container" id="booksContainer">
+            <div class="empty-state">
+                <h3>Selecciona un autor para ver sus libros</h3>
+                <p>Los libros disponibles aparecerán aquí</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
