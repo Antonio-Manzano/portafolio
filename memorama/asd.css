@@ -1,0 +1,378 @@
+:root {
+    --minecraft-bg: #87CEEB;
+    --minecraft-dirt: #7B5F3E;
+    --minecraft-grass: #5D9938;
+    --minecraft-wood: #75442A;
+    --minecraft-stone: #808080;
+    --minecraft-crafting: #A0A0A0;
+    --minecraft-glowstone: #FFDB58;
+    --minecraft-redstone: #DD0000;
+    --minecraft-creeper-green: #4CAF50;
+    --minecraft-water: #36A4FF;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    background-color: var(--minecraft-bg);
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    color: #2e2e2e;
+    text-shadow: 2px 2px #000;
+    font-size: 14px;
+    padding: 20px;
+}
+
+h1 {
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    font-size: 2.5em;
+    letter-spacing: 2px;
+    text-shadow: 4px 4px #000;
+    line-height: 1.2;
+}
+h1 span {
+    font-size: 0.6em;
+    display: block;
+    margin-top: 5px;
+    color: var(--minecraft-creeper-green);
+    text-shadow: 2px 2px #000;
+}
+
+h2 {
+    color: #F8F8F8;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    text-shadow: 3px 3px #000;
+}
+
+#pedido-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--minecraft-wood);
+    padding: 25px;
+    border: 4px solid var(--minecraft-dirt);
+    box-shadow: 8px 8px 0px 0px var(--minecraft-stone);
+    border-radius: 0;
+    position: relative;
+    z-index: 1;
+}
+#pedido-form-container::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 2px dashed var(--minecraft-water);
+    pointer-events: none;
+    z-index: 2;
+}
+
+#form-title-h2 {
+    color: #FFF;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-shadow: 2px 2px #000;
+}
+#form-titulo {
+    color: var(--minecraft-glowstone);
+}
+
+#pedido-form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: normal;
+    color: #FFF;
+    text-shadow: 1px 1px #000;
+}
+
+#pedido-form input[type="text"], 
+#pedido-form input[type="number"], 
+#pedido-form select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--minecraft-stone);
+    background-color: var(--minecraft-crafting);
+    color: #2e2e2e;
+    box-sizing: border-box;
+    border-radius: 0;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 1px 1px #FFF;
+    font-size: 12px;
+}
+#pedido-form select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%232e2e2e" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px top 50%;
+    background-size: 16px;
+}
+
+
+#submit-button {
+    width: 100%;
+    background-color: var(--minecraft-creeper-green);
+    color: white;
+    padding: 15px 15px;
+    border: 3px solid #000;
+    box-shadow: 4px 4px 0px 0px #000;
+    cursor: pointer;
+    margin-top: 25px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    transition: all 0.1s ease-in-out;
+    border-radius: 0;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 2px 2px #000;
+}
+
+#submit-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px 0px #000;
+}
+#submit-button:hover {
+    background-color: #3f8f41;
+}
+
+.separator-block {
+    height: 15px;
+    background-color: var(--minecraft-grass);
+    border-top: 3px solid var(--minecraft-dirt);
+    border-bottom: 3px solid var(--minecraft-dirt);
+    margin: 40px auto;
+    max-width: 600px;
+    box-shadow: 8px 8px 0px 0px var(--minecraft-stone);
+}
+
+table {
+    width: 100%;
+    max-width: 900px;
+    border-collapse: collapse;
+    margin: 20px auto 40px auto;
+    background-color: var(--minecraft-wood);
+    box-shadow: 8px 8px 0px 0px var(--minecraft-stone);
+    border: 4px solid var(--minecraft-dirt);
+    border-radius: 0;
+}
+
+th, td {
+    border: 2px solid var(--minecraft-stone);
+    padding: 12px;
+    text-align: left;
+    color: #FFF;
+    text-shadow: 1px 1px #000;
+    font-size: 12px;
+}
+
+th {
+    background-color: var(--minecraft-crafting);
+    color: #2e2e2e;
+    text-shadow: 1px 1px #FFF;
+    font-weight: normal;
+}
+
+.accion-btn {
+    padding: 8px 12px;
+    margin-right: 5px;
+    border: 2px solid #000;
+    border-radius: 0;
+    cursor: pointer;
+    color: white;
+    font-weight: normal;
+    transition: all 0.1s ease-in-out;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    text-shadow: 1px 1px #000;
+    box-shadow: 2px 2px 0px 0px #000;
+}
+.accion-btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px 0px #000;
+}
+.accion-btn:hover {
+    opacity: 0.8;
+}
+
+.modificar {
+    background-color: var(--minecraft-glowstone);
+    color: #2e2e2e;
+    text-shadow: 1px 1px #FFF;
+}
+
+.borrar {
+    background-color: var(--minecraft-redstone);
+}
+
+:root {
+    --minecraft-bg: #87CEEB;
+    --minecraft-dirt: #7B5F3E;
+    --minecraft-grass: #5D9938;
+    --minecraft-wood: #75442A;
+    --minecraft-stone: #808080;
+    --minecraft-crafting: #A0A0A0;
+    --minecraft-glowstone: #FFDB58;
+    --minecraft-redstone: #DD0000;
+    --minecraft-creeper-green: #4CAF50;
+    --minecraft-water: #36A4FF;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    background-color: var(--minecraft-bg);
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    color: #2e2e2e;
+    text-shadow: 2px 2px #000;
+    font-size: 14px;
+    padding: 20px;
+}
+
+h1 {
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    font-size: 2.5em;
+    letter-spacing: 2px;
+    text-shadow: 4px 4px #000;
+    line-height: 1.2;
+}
+h1 span {
+    font-size: 0.6em;
+    display: block;
+    margin-top: 5px;
+    color: var(--minecraft-creeper-green);
+    text-shadow: 2px 2px #000;
+}
+
+#game-info-container {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: var(--minecraft-wood);
+    padding: 15px;
+    border: 4px solid var(--minecraft-dirt);
+    box-shadow: 6px 6px 0px 0px var(--minecraft-stone);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.info-item {
+    text-align: center;
+    color: #FFF;
+    text-shadow: 1px 1px #000;
+    font-size: 10px;
+}
+.info-value {
+    display: block;
+    font-size: 1.2em;
+    color: var(--minecraft-glowstone);
+    text-shadow: 2px 2px #000;
+}
+
+#start-button, #restart-button {
+    background-color: var(--minecraft-creeper-green);
+    color: white;
+    padding: 10px 15px;
+    border: 3px solid #000;
+    box-shadow: 3px 3px 0px 0px #000;
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    transition: all 0.1s ease-in-out;
+    border-radius: 0;
+}
+#start-button:active, #restart-button:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px 0px #000;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 600px;
+    margin: 20px auto;
+    perspective: 1000px; 
+}
+
+.card-container {
+    height: 140px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    cursor: pointer;
+}
+
+.card-container.flipped {
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
+
+.card-container.matched {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.card-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border: 3px solid var(--minecraft-dirt);
+    box-shadow: 4px 4px 0px 0px var(--minecraft-stone);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    font-size: 30px;
+}
+
+.card-back {
+    background-color: var(--minecraft-stone);
+    color: #FFF;
+    font-size: 0.8em;
+}
+
+.card-front {
+    background-color: var(--minecraft-crafting);
+    transform: rotateY(180deg);
+    color: #2e2e2e;
+}
+
+#end-game-message {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    color: #FFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5em;
+    text-shadow: 3px 3px #000;
+    z-index: 100;
+}
+#end-game-message.hidden {
+    display: none;
+}
+#end-game-title {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+#restart-button {
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 14px;
+}

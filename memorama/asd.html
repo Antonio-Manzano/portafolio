@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memorama Minecraft (Time Attack)</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="asd.css"> 
+</head>
+<body>
+
+    <h1>Memorama </h1>
+
+    <div id="game-info-container">
+        <div class="info-item">
+            <label>Tiempo:</label>
+            <span id="time-display" class="info-value">60s</span>
+        </div>
+        <div class="info-item">
+            <label>Pares:</label>
+            <span id="matches-display" class="info-value">0 / 6</span>
+        </div>
+        <button id="start-button">⛏️ Empezar Juego ⛏️</button>
+    </div>
+
+    <div id="game-board" class="board-grid">
+    </div>
+
+    <div id="end-game-message" class="hidden">
+        <h2 id="end-game-title">¡VICTORIA!</h2>
+        <p id="end-game-text"></p>
+        <button id="restart-button">Jugar de Nuevo</button>
+    </div>
+
+    <script src="asd.js"></script>
+</body>
+</html>
