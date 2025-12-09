@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Profesional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+    
+        :root {
+            --primary-color: #00e676; 
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --text-main: #ffffff;
+            --text-secondary: #b0b0b0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+        
+        header { padding: 20px 50px; border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary-color); letter-spacing: 2px; text-transform: uppercase; }
+
+        .presentation-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            padding: 50px 10%;
+            gap: 50px;
+            background: radial-gradient(circle at top left, #1a2e23 0%, var(--bg-dark) 60%);
+        }
+
+        .text-col { flex: 1; }
+        .text-col h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; }
+        .text-col span { color: var(--primary-color); }
+        .text-col p { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 30px; max-width: 500px; }
+
+        .photo-col { flex: 1; display: flex; justify-content: center; }
+        .profile-photo {
+            width: 350px;
+            height: 350px;
+            background-color: #222;
+            border: 3px solid var(--primary-color);
+            border-radius: 20px; 
+            object-fit: cover;
+            box-shadow: 15px 15px 0px rgba(0, 230, 118, 0.1);
+            background-image: url('https://via.placeholder.com/350x350/333/00e676?text=Tu+Foto');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .skills-section {
+            padding: 60px 10%;
+            background: #181818;
+        }
+        .section-title { font-size: 2rem; color: var(--primary-color); margin-bottom: 40px; text-align: center; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); 
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+        .skill-card:hover { border-color: var(--primary-color); transform: translateY(-5px); }
+        .skill-card i { font-size: 2rem; color: var(--primary-color); margin-bottom: 10px; display: block; }
+
+        .activities-section { padding: 80px 10%; }
+        .activities-container { display: flex; flex-direction: column; gap: 80px; max-width: 900px; margin: 0 auto; }
+
+        .activity-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-color);
+            position: relative;
+        }
+        .activity-number {
+            position: absolute; top: -25px; right: 20px; font-size: 5rem;
+            font-weight: 700; color: rgba(255, 255, 255, 0.03);
+        }
+
+        .activity-header { margin-bottom: 20px; }
+        .activity-header h3 { font-size: 1.8rem; color: var(--text-main); }
+        .activity-desc { color: var(--text-secondary); margin-bottom: 25px; }
+
+        .images-row { display: flex; gap: 15px; margin-bottom: 25px; }
+        .images-row img {
+            width: 50%; height: 200px; object-fit: cover;
+            border-radius: 8px; border: 1px solid #333;
+        }
+
+        .open-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            width: 100%;
+            text-align: center;
+        }
+        .open-btn:hover { background: var(--primary-color); color: #000; }
+
+        #project-viewer {
+            display: none; 
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .viewer-controls {
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+        }
+
+        .close-btn {
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        .close-btn:hover { color: var(--primary-color); }
+
+        .iframe-container {
+            width: 90%;
+            height: 85%;
+            max-width: 1200px;
+            background: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        iframe { width: 100%; height: 100%; border: none; }
+
+        footer { text-align: center; padding: 30px; color: #555; border-top: 1px solid #222; margin-top: 50px; }
+
+        @media (max-width: 768px) {
+            .presentation-section { flex-direction: column-reverse; text-align: center; }
+            .profile-photo { width: 250px; height: 250px; margin-bottom: 20px; }
+            .images-row { flex-direction: column; }
+            .images-row img { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="presentation-section">
+        <div class="text-col">
+            <h1>Conóceme:<br><span>J. Antonio M. C.</span></h1>
+            <p>Estudiante de Ingeniería en Tecnologías de la Inforamción. Transformo ideas complejas en código limpio y funcional.</p>
+        </div>
+        <div class="photo-col">
+            <div class="profile-photo"></div>
+        </div>
+    </section>
+
+<section class="skills-section">
+        <h2 class="section-title">Mis Habilidades</h2>
+        <div class="skills-grid">
+            <div class="skill-card"><i class="fab fa-envira"></i>MongoDB</div>
+            <div class="skill-card"><i class="fas fa-file-code"></i>C++</div>
+            <div class="skill-card"><i class="fab fa-python"></i>Python</div>
+            <div class="skill-card"><i class="fab fa-java"></i>Java</div>
+            <div class="skill-card"><i class="fab fa-html5"></i>HTML5</div>
+            <div class="skill-card"><i class="fab fa-css3-alt"></i>CSS3</div>
+            <div class="skill-card"><i class="fab fa-js"></i>JavaScript</div>
+            <div class="skill-card"><i class="fab fa-node-js"></i>Node.js</div>
+            <div class="skill-card"><i class="fas fa-database"></i>SQL</div>
+            <div class="skill-card"><i class="fab fa-git-alt"></i>Git</div>
+        </div>
+    </section>
+
+<section class="activities-section">
+        <h2 class="section-title">Mis Actividades</h2>
+        <div class="activities-container">
+
+            <div class="activity-card">
+                <div class="activity-number">01</div>
+                <div class="activity-header">
+                    <h3>Carritos Gamer</h3>
+                </div>
+                <div class="images-row">
+                    <img src="https://via.placeholder.com/400x300/111/00e676?text=Captura+Juego" alt="Juego">
+                    <img src="https://via.placeholder.com/400x300/111/00e676?text=Captura+Codigo" alt="Codigo">
+                </div>
+                <p class="activity-desc">
+                    Proyecto de videojuego web. Desarrollado con estructura HTML, estilos personalizados y lógica en JavaScript.
+                </p>
+                <button class="open-btn" onclick="openViewer('carritosgamer/index.html')">
+                    Ver Proyecto Completo <i class="fas fa-external-link-alt"></i>
+                </button>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-number">02</div>
+                <div class="activity-header">
+                    <h3>Juego de Memorama</h3>
+                </div>
+                <div class="images-row">
+                    <img src="https://via.placeholder.com/400x300/111/00e676?text=Tablero" alt="Tablero">
+                    <img src="https://via.placeholder.com/400x300/111/00e676?text=Logica" alt="Logica">
+                </div>
+                <p class="activity-desc">
+                    Juego de memoria clásico. Implementación de lógica de pares y manipulación del DOM con el archivo asd.js.
+                </p>
+                <button class="open-btn" onclick="openViewer('memorama/asd.html')">
+                    Ver Proyecto Completo <i class="fas fa-external-link-alt"></i>
+                </button>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-number">03</div>
+                <div class="activity-header">
+                    <h3>Clon de Pac-Man</h3>
+                </div>
+                <div class="images-row">
+                    <img src="https://via.placeholder.com/400x300/111/00e676?text=Laberinto" alt="Laberinto">
+                    <img src="https://via.placeholder.com/400x300/111/00e676?text=Personaje" alt="Personaje">
+                </div>
+                <p class="activity-desc">
+                    Recreación del clásico arcade. Uso avanzado de JavaScript para el movimiento, colisiones y sonidos.
+                </p>
+                <button class="open-btn" onclick="openViewer('Pac-Man/pacman.html')">
+                    Ver Proyecto Completo <i class="fas fa-external-link-alt"></i>
+                </button>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-number">04</div>
+                <div class="activity-header">
+                    <h3>Gestión de Pedidos</h3>
+                </div>
+                <div class="images-row">
+                    <img src="https://via.placeholder.com/400x300/111/00e676?text=Formulario" alt="Formulario">
+                    <img src="https://via.placeholder.com/400x300/111/00e676?text=Lista" alt="Lista">
+                </div>
+                <p class="activity-desc">
+                    Sistema web para administrar órdenes. Interfaz limpia usando 'leo.css' y lógica de gestión en JS.
+                </p>
+                <button class="open-btn" onclick="openViewer('pedidos/leo.html')">
+                    Ver Proyecto Completo <i class="fas fa-external-link-alt"></i>
+                </button>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-number">05</div>
+                <div class="activity-header">
+                    <h3>Práctica AJAX</h3>
+                </div>
+                <div class="images-row">
+                    <img src="https://via.placeholder.com/400x300/111/00e676?text=Peticiones" alt="Peticiones">
+                    <img src="https://via.placeholder.com/400x300/111/00e676?text=Respuesta" alt="Respuesta">
+                </div>
+                <p class="activity-desc">
+                    Consumo de datos asíncronos. 
+                    <br><strong>Nota:</strong> Este proyecto usa PHP (servidor.php), por lo que algunas funciones no se ejecutarán en GitHub Pages (solo soporta HTML/JS estático).
+                </p>
+                <button class="open-btn" onclick="openViewer('practicajax/index.html')">
+                    Ver Proyecto Completo <i class="fas fa-external-link-alt"></i>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="project-viewer">
+        <div class="viewer-controls">
+            <button class="close-btn" onclick="closeViewer()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="iframe-container">
+            <iframe id="content-frame" src=""></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Juan Antonio Manzano Ceja.</p>
+    </footer>
+
+    <script>
+        const viewer = document.getElementById('project-viewer');
+        const frame = document.getElementById('content-frame');
+
+        function openViewer(url) {
+            frame.src = url;
+            viewer.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeViewer() {
+            viewer.style.display = 'none'; 
+            frame.src = ''; 
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+
+</body>
+</html>
